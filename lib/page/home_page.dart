@@ -45,7 +45,9 @@ class _HomePageState extends State<HomePage> {
                 );
 
                 if (spelling != null) {
-                  _spellingList = Spelling.findAll();
+                  setState(() {
+                    _spellingList = Spelling.findAll();
+                  });
                 }
               }),
         ],
@@ -123,7 +125,9 @@ class _HomePageState extends State<HomePage> {
                         );
 
                         if (updatedSpelling != null) {
-                          _spellingList = Spelling.findAll();
+                          setState(() {
+                            _spellingList = Spelling.findAll();
+                          });
                         }
                       },
                     ),
