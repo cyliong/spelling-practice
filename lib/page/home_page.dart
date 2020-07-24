@@ -57,7 +57,11 @@ class _HomePageState extends State<HomePage> {
           future: _spellingList,
           builder: (context, snapshot) {
             if (snapshot.hasData) {
-              return _buildListView(snapshot.data);
+              final spellingList = snapshot.data;
+              return spellingList.isEmpty
+                  ? Text('No Spellings',
+                      style: TextStyle(fontSize: 30, color: Colors.grey))
+                  : _buildListView(spellingList);
             } else if (snapshot.hasError) {
               return Text("${snapshot.error}");
             }
