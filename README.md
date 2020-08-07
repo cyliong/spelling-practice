@@ -32,6 +32,6 @@ It uses generics and inheritance to make the creation of data models easier.
 - flutter_tts
 
 ## Requirements
-- Flutter 1.17.2 or higher
-- Dart 2.8.0 or higher
+- Flutter 1.20.1 or higher
+- Dart 2.9.0 or higher
 
