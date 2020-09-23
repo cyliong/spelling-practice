@@ -160,16 +160,12 @@ class _EditPageState extends State<EditPage> {
                         ),
                         DropdownButton<String>(
                           value: _language,
-                          items: [
-                            DropdownMenuItem<String>(
-                              value: Languages.English.code,
-                              child: Text(Languages.English.name),
-                            ),
-                            DropdownMenuItem<String>(
-                              value: Languages.Chinese.code,
-                              child: Text(Languages.Chinese.name),
-                            ),
-                          ],
+                          items: Languages.availableLanguages
+                              .map((language) => DropdownMenuItem<String>(
+                                    value: language.code,
+                                    child: Text(language.name),
+                                  ))
+                              .toList(),
                           onChanged: (newValue) =>
                               setState(() => _language = newValue),
                         ),
