@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart' show DateFormat;
 import 'package:spelling_practice/constants.dart';
+import 'package:spelling_practice/model/language.dart';
 import 'package:spelling_practice/model/spelling.dart';
 import 'package:spelling_practice/model/vocabulary.dart';
 
@@ -44,7 +45,7 @@ class _EditPageState extends State<EditPage> {
 
     if (_isNew) {
       _date = DateTime.now();
-      _language = kLanguageEnglish;
+      _language = Languages.English.code;
     } else {
       _titleController.text = widget.spelling.title;
 
@@ -161,12 +162,12 @@ class _EditPageState extends State<EditPage> {
                           value: _language,
                           items: [
                             DropdownMenuItem<String>(
-                              value: kLanguageEnglish,
-                              child: Text('English'),
+                              value: Languages.English.code,
+                              child: Text(Languages.English.name),
                             ),
                             DropdownMenuItem<String>(
-                              value: kLanguageChinese,
-                              child: Text('Chinese'),
+                              value: Languages.Chinese.code,
+                              child: Text(Languages.Chinese.name),
                             ),
                           ],
                           onChanged: (newValue) =>
