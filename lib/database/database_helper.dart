@@ -1,27 +1,20 @@
 import 'package:sqflite/sqflite.dart';
-import 'package:synchronized/synchronized.dart';
 
 class DatabaseHelper {
   static const databaseName = 'app.db';
 
-  static final _lock = Lock();
+  static Future<Database> _database;
 
-  static Database _database;
-
-  static Future<Database> get database async {
+  static Future<Database> get database {
     if (_database == null) {
-      await _lock.synchronized(() async {
-        if (_database == null) {
-          _database = await openDatabase(databaseName, version: 1,
-              onCreate: (db, version) async {
-            await db.transaction((txn) async {
-              await txn.execute(
-                  'CREATE TABLE spelling (id INTEGER PRIMARY KEY NOT NULL, title TEXT NOT NULL, language TEXT NOT NULL, date INTEGER NOT NULL)');
-              await txn.execute(
-                  'CREATE TABLE vocabulary (id INTEGER PRIMARY KEY NOT NULL, vocabulary TEXT NOT NULL, spelling_id INTEGER NOT NULL)');
-            });
-          });
-        }
+      _database =
+          openDatabase(databaseName, version: 1, onCreate: (db, version) async {
+        await db.transaction((txn) async {
+          await txn.execute(
+              'CREATE TABLE spelling (id INTEGER PRIMARY KEY NOT NULL, title TEXT NOT NULL, language TEXT NOT NULL, date INTEGER NOT NULL)');
+          await txn.execute(
+              'CREATE TABLE vocabulary (id INTEGER PRIMARY KEY NOT NULL, vocabulary TEXT NOT NULL, spelling_id INTEGER NOT NULL)');
+        });
       });
     }
     return _database;
