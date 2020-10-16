@@ -3,9 +3,13 @@ import 'package:sqflite/sqflite.dart';
 class DatabaseHelper {
   static const databaseName = 'app.db';
 
-  static Future<Database> _database;
+  static final _instance = DatabaseHelper._internal();
+  factory DatabaseHelper() => _instance;
+  DatabaseHelper._internal();
 
-  static Future<Database> get database {
+  Future<Database> _database;
+
+  Future<Database> get database {
     if (_database == null) {
       _database =
           openDatabase(databaseName, version: 1, onCreate: (db, version) async {
