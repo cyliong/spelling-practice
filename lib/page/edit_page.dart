@@ -136,7 +136,7 @@ class _EditPageState extends State<EditPage> {
                           width: 100,
                           child: const Text('Spelling Date'),
                         ),
-                        RaisedButton(
+                        ElevatedButton(
                           child: Text(DateFormat(kDateFormat).format(_date)),
                           onPressed: () async {
                             final DateTime selectedDate = await showDatePicker(

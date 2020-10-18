@@ -81,7 +81,7 @@ class _PlayPageState extends State<PlayPage> {
               height: 5,
             ),
             Text(
-              'Plese add vocabulary to this spelling.',
+              'Please add vocabulary to this spelling.',
               style: TextStyle(color: Colors.grey),
             )
           ],
@@ -111,8 +111,11 @@ class _PlayPageState extends State<PlayPage> {
               SizedBox(
                 height: 130,
                 width: 130,
-                child: RaisedButton(
-                  elevation: 12,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    elevation: 12,
+                    shape: CircleBorder(),
+                  ),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -126,7 +129,6 @@ class _PlayPageState extends State<PlayPage> {
                       ),
                     ],
                   ),
-                  shape: CircleBorder(),
                   onPressed: () async {
                     FlutterTts tts = FlutterTts();
                     await tts.setLanguage(widget.spelling.language);
@@ -149,13 +151,11 @@ class _PlayPageState extends State<PlayPage> {
     );
   }
 
-  RaisedButton _buildNextButton(bool isLastIndex) {
-    return RaisedButton(
+  ElevatedButton _buildNextButton(bool isLastIndex) {
+    return ElevatedButton(
       child: Text(
         isLastIndex ? 'Review' : 'Next',
-        style: TextStyle(color: Colors.white),
       ),
-      color: Colors.blue,
       onPressed: () {
         setState(() {
           if (isLastIndex) {
