@@ -88,11 +88,11 @@ class _HomePageState extends State<HomePage> {
                     title: Text('Delete this spelling?'),
                     content: Text('${spelling.title}'),
                     actions: <Widget>[
-                      FlatButton(
+                      TextButton(
                         child: Text('No'),
                         onPressed: () => Navigator.pop(context, false),
                       ),
-                      FlatButton(
+                      TextButton(
                         child: Text('Yes'),
                         onPressed: () => Navigator.pop(context, true),
                       ),
@@ -115,7 +115,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 ButtonBar(
                   children: <Widget>[
-                    FlatButton(
+                    TextButton(
                       child: const Text('EDIT'),
                       onPressed: () async {
                         final Spelling updatedSpelling = await Navigator.push(
@@ -135,7 +135,7 @@ class _HomePageState extends State<HomePage> {
                         }
                       },
                     ),
-                    FlatButton(
+                    TextButton(
                       child: const Text('VIEW'),
                       onPressed: () async {
                         Navigator.push(
@@ -146,7 +146,7 @@ class _HomePageState extends State<HomePage> {
                         );
                       },
                     ),
-                    FlatButton(
+                    TextButton(
                       child: const Text('PLAY'),
                       onPressed: () {
                         Navigator.push(

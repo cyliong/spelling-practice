@@ -83,9 +83,11 @@ class _EditPageState extends State<EditPage> {
               vertical: 10,
               horizontal: 5,
             ),
-            child: FlatButton(
+            child: TextButton(
               child: Text('SAVE'),
-              textColor: Colors.white,
+              style: TextButton.styleFrom(
+                primary: Colors.white,
+              ),
               onPressed: _saveButtonEnabled
                   ? () async {
                       final spelling = Spelling(
@@ -188,8 +190,10 @@ class _EditPageState extends State<EditPage> {
                       return CircularProgressIndicator();
                     },
                   ),
-            FlatButton.icon(
-              padding: EdgeInsets.all(15),
+            TextButton.icon(
+              style: TextButton.styleFrom(
+                padding: EdgeInsets.all(15),
+              ),
               onPressed: () {
                 setState(() {
                   _vocabularyCount++;
