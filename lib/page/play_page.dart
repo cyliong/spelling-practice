@@ -52,6 +52,7 @@ class _PlayPageState extends State<PlayPage> {
                     child: _spellingDone
                         ? VocabularyListView(
                             vocabularyList: snapshot.data,
+                            language: widget.spelling.language,
                           )
                         : _buildPlayer(snapshot.data),
                   ),

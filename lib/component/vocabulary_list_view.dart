@@ -3,9 +3,13 @@ import 'package:flutter_tts/flutter_tts.dart';
 import 'package:spelling_practice/model/vocabulary.dart';
 
 class VocabularyListView extends StatelessWidget {
-  VocabularyListView({@required this.vocabularyList});
+  VocabularyListView({
+    @required this.vocabularyList,
+    @required this.language,
+  });
 
   final List<Vocabulary> vocabularyList;
+  final String language;
 
   @override
   Widget build(BuildContext context) {
@@ -19,6 +23,7 @@ class VocabularyListView extends StatelessWidget {
               icon: Icon(Icons.record_voice_over),
               onPressed: () async {
                 FlutterTts tts = FlutterTts();
+                await tts.setLanguage(language);
                 await tts.speak(vocabulary);
               },
             ),

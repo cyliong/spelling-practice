@@ -49,6 +49,7 @@ class _ViewPageState extends State<ViewPage> {
                   if (snapshot.hasData) {
                     return VocabularyListView(
                       vocabularyList: snapshot.data,
+                      language: _spelling.language,
                     );
                   } else if (snapshot.hasError) {
                     return Text("${snapshot.error}");
