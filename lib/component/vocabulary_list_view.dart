@@ -10,7 +10,13 @@ class VocabularyListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.separated(
         itemBuilder: (context, index) {
-          return ListTile(title: Text('${vocabularyList[index].vocabulary}'));
+          return ListTile(
+            title: Text('${vocabularyList[index].vocabulary}'),
+            trailing: IconButton(
+              icon: Icon(Icons.record_voice_over),
+              onPressed: () {},
+            ),
+          );
         },
         separatorBuilder: (context, index) => Divider(),
         itemCount: vocabularyList.length);
