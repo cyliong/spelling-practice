@@ -15,7 +15,8 @@ without the need to engage their teachers or parents.
 
 ## Features
 - Adding and editing vocabularies for spelling
-- Play vocabularies one-by-one in randomized order
+- View and play vocabularies in a spelling list before the real practice
+- In real practice, play vocabularies one-by-one in randomized order
 - Allow playing the same vocabulary for multiple times
 - Support pronouncing English and Chinese vocabularies
 - Showing the progress of practice
