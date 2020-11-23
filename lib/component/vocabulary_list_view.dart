@@ -19,13 +19,20 @@ class VocabularyListView extends StatelessWidget {
 
           return ListTile(
             title: Text(vocabulary),
-            trailing: IconButton(
-              icon: Icon(Icons.record_voice_over),
-              onPressed: () async {
-                FlutterTts tts = FlutterTts();
-                await tts.setLanguage(language);
-                await tts.speak(vocabulary);
-              },
+            trailing: Ink(
+              decoration: const ShapeDecoration(
+                color: Colors.lightBlue,
+                shape: CircleBorder(),
+              ),
+              child: IconButton(
+                icon: Icon(Icons.record_voice_over),
+                color: Colors.white,
+                onPressed: () async {
+                  FlutterTts tts = FlutterTts();
+                  await tts.setLanguage(language);
+                  await tts.speak(vocabulary);
+                },
+              ),
             ),
           );
         },
