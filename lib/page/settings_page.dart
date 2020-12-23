@@ -6,6 +6,8 @@ class SettingsPage extends StatefulWidget {
 }
 
 class _SettingsPageState extends State<SettingsPage> {
+  bool _randomized = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,8 +18,12 @@ class _SettingsPageState extends State<SettingsPage> {
         children: [
           SwitchListTile(
             title: const Text('Randomize playing order'),
-            value: true,
-            onChanged: (bool value) {},
+            value: _randomized,
+            onChanged: (bool value) {
+              setState(() {
+                _randomized = value;
+              });
+            },
           ),
         ],
       ),
