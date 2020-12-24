@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:spelling_practice/repository/settings_repository.dart';
 
 class SettingsPage extends StatefulWidget {
   @override
@@ -7,6 +8,12 @@ class SettingsPage extends StatefulWidget {
 
 class _SettingsPageState extends State<SettingsPage> {
   bool _randomized = true;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadSettings();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,5 +36,12 @@ class _SettingsPageState extends State<SettingsPage> {
         ],
       ),
     );
+  }
+
+  void _loadSettings() async {
+    final randomized = await SettingsRepository().isPlayOrderRandomized();
+    setState(() {
+      _randomized = randomized;
+    });
   }
 }
