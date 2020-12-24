@@ -24,6 +24,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 _randomized = value;
               });
             },
+            secondary: const Icon(Icons.playlist_play),
           ),
         ],
       ),
