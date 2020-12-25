@@ -27,6 +27,7 @@ class _SettingsPageState extends State<SettingsPage> {
             title: const Text('Randomize playing order'),
             value: _randomized,
             onChanged: (bool value) {
+              SettingsRepository().savePlayOrder(value);
               setState(() {
                 _randomized = value;
               });
