@@ -9,4 +9,9 @@ class SettingsRepository {
     final prefs = await _prefsFuture;
     return prefs.getBool(_randomizedPreferencesKey) ?? true;
   }
+
+  void savePlayOrder(bool randomized) async {
+    final prefs = await _prefsFuture;
+    prefs.setBool(_randomizedPreferencesKey, randomized);
+  }
 }
