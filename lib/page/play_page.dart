@@ -4,6 +4,7 @@ import 'package:spelling_practice/component/spelling_view.dart';
 import 'package:spelling_practice/component/vocabulary_list_view.dart';
 import 'package:spelling_practice/model/spelling.dart';
 import 'package:spelling_practice/model/vocabulary.dart';
+import 'package:spelling_practice/repository/settings_repository.dart';
 
 class PlayPage extends StatefulWidget {
   PlayPage({@required this.spelling});
@@ -23,11 +24,7 @@ class _PlayPageState extends State<PlayPage> {
   @override
   void initState() {
     super.initState();
-
-    _vocabularyList = Vocabulary.findAll(
-      spellingId: widget.spelling.id,
-      random: true,
-    );
+    _loadVocabularyList();
   }
 
   @override
@@ -167,5 +164,15 @@ class _PlayPageState extends State<PlayPage> {
         });
       },
     );
+  }
+
+  void _loadVocabularyList() async {
+    final randomized = await SettingsRepository().isPlayOrderRandomized();
+    setState(() {
+      _vocabularyList = Vocabulary.findAll(
+        spellingId: widget.spelling.id,
+        random: randomized,
+      );
+    });
   }
 }
