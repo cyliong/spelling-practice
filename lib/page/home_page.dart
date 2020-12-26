@@ -32,6 +32,11 @@ class _HomePageState extends State<HomePage> {
         title: Text(widget.title),
         actions: <Widget>[
           IconButton(
+            icon: const Icon(Icons.settings),
+            tooltip: 'Settings',
+            onPressed: () {},
+          ),
+          IconButton(
               icon: const Icon(Icons.add),
               tooltip: 'Add Spelling',
               onPressed: () async {
