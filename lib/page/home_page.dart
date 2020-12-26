@@ -4,6 +4,7 @@ import 'package:spelling_practice/model/spelling.dart';
 import 'package:spelling_practice/model/vocabulary.dart';
 import 'package:spelling_practice/page/edit_page.dart';
 import 'package:spelling_practice/page/play_page.dart';
+import 'package:spelling_practice/page/settings_page.dart';
 import 'package:spelling_practice/page/view_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -34,7 +35,14 @@ class _HomePageState extends State<HomePage> {
           IconButton(
             icon: const Icon(Icons.settings),
             tooltip: 'Settings',
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => SettingsPage(),
+                ),
+              );
+            },
           ),
           IconButton(
               icon: const Icon(Icons.add),
