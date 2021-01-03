@@ -3,9 +3,9 @@ import 'package:sqflite/sqflite.dart';
 class DatabaseHelper {
   static const databaseName = 'app.db';
 
-  static final _instance = DatabaseHelper._internal();
+  static final _instance = DatabaseHelper._();
   factory DatabaseHelper() => _instance;
-  DatabaseHelper._internal();
+  DatabaseHelper._();
 
   Future<Database> _database;
 
