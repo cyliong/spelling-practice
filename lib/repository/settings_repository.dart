@@ -1,9 +1,9 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SettingsRepository {
-  static final _instance = SettingsRepository._internal();
+  static final _instance = SettingsRepository._();
   factory SettingsRepository() => _instance;
-  SettingsRepository._internal();
+  SettingsRepository._();
 
   static const String _randomizedPreferencesKey = 'randomized';
 
