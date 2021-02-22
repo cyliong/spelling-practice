@@ -31,7 +31,7 @@ class _PlayPageState extends State<PlayPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Play Spelling'),
+        title: Text('${_spellingDone ? 'Review' : 'Play'} Spelling'),
       ),
       body: Center(
         child: FutureBuilder<List<Vocabulary>>(
