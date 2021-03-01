@@ -149,8 +149,8 @@ class _PlayPageState extends State<PlayPage> {
     );
   }
 
-  ElevatedButton _buildNextButton(bool isLastIndex) {
-    return ElevatedButton(
+  OutlinedButton _buildNextButton(bool isLastIndex) {
+    return OutlinedButton(
       child: Text(
         isLastIndex ? 'Review' : 'Next',
       ),
