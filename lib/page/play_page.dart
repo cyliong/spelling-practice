@@ -153,6 +153,7 @@ class _PlayPageState extends State<PlayPage> {
     return OutlinedButton(
       child: Text(
         isLastIndex ? 'Review' : 'Next',
+        style: TextStyle(fontSize: 18),
       ),
       onPressed: () {
         setState(() {
