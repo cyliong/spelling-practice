@@ -34,5 +34,5 @@ It uses generics and inheritance to make the creation of data models easier.
 - shared_preferences
 
 ## Requirements
-- Flutter 1.22.2 or higher
-- Dart 2.10.2 or higher
+- Flutter 2.0.1 or higher
+- Dart 2.12.0 or higher
