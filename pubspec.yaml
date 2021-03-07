@@ -12,7 +12,7 @@ dependencies:
   flutter_tts: ^2.1.0
   shared_preferences: ^0.5.12+4
   intl: ^0.16.1
-  cupertino_icons: ^1.0.0
+  cupertino_icons: ^1.0.2
 
 dev_dependencies:
   flutter_test:
