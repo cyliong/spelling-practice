@@ -9,7 +9,7 @@ dependencies:
   flutter:
     sdk: flutter
   sqflite: ^2.0.0+2
-  flutter_tts: ^2.1.0
+  flutter_tts: ^3.0.0
   shared_preferences: ^2.0.3
   intl: ^0.17.0
   cupertino_icons: ^1.0.2
