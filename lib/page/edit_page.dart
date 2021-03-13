@@ -17,7 +17,7 @@ class EditPage extends StatefulWidget {
 
 class _EditPageState extends State<EditPage> {
   final _titleController = TextEditingController();
-  final _vocabularyControllers = List<TextEditingController>();
+  final _vocabularyControllers = <TextEditingController>[];
 
   int _vocabularyCount = 0;
 
