@@ -1,11 +1,9 @@
-// @dart=2.9
-
 import 'package:spelling_practice/database/database_helper.dart';
 
 abstract class ActiveRecord {
   ActiveRecord({this.id});
 
-  int id;
+  int? id;
 
   static const _idColumn = 'id';
 
@@ -34,7 +32,8 @@ abstract class ActiveRecord {
   Future<int> update() => DatabaseHelper().database.then((database) => database
       .update(tableName, toMap(), where: '$idColumn = ?', whereArgs: [id]));
 
-  static Future<int> delete(String tableName, int id, [String idColumn]) async {
+  static Future<int> delete(String tableName, int id,
+      [String? idColumn]) async {
     final database = await DatabaseHelper().database;
     return database.delete(tableName,
         where: '${_idColumnName(idColumn)} = ?', whereArgs: [id]);
@@ -42,8 +41,8 @@ abstract class ActiveRecord {
 
   static Future<int> deleteAll(
     String tableName, {
-    String where,
-    List<dynamic> whereArgs,
+    String? where,
+    List<dynamic>? whereArgs,
   }) async {
     final database = await DatabaseHelper().database;
     return database.delete(
@@ -53,9 +52,9 @@ abstract class ActiveRecord {
     );
   }
 
-  static Future<T> find<T extends ActiveRecord>(
+  static Future<T?> find<T extends ActiveRecord>(
       String tableName, int id, T createModel(Map<String, dynamic> map),
-      [String idColumn]) async {
+      [String? idColumn]) async {
     final database = await DatabaseHelper().database;
     final maps = await database.query(tableName,
         where: '${_idColumnName(idColumn)} = ?', whereArgs: [id], limit: 1);
@@ -65,9 +64,9 @@ abstract class ActiveRecord {
   static Future<List<T>> findAll<T extends ActiveRecord>(
     String tableName,
     T createModel(Map<String, dynamic> map), {
-    String where,
-    List<dynamic> whereArgs,
-    String orderBy,
+    String? where,
+    List<dynamic>? whereArgs,
+    String? orderBy,
   }) async {
     final database = await DatabaseHelper().database;
     final maps = await database.query(
@@ -79,5 +78,5 @@ abstract class ActiveRecord {
     return maps.map((m) => createModel(m)).toList();
   }
 
-  static String _idColumnName(idColumn) => idColumn ?? _idColumn;
+  static String _idColumnName(String? idColumn) => idColumn ?? _idColumn;
 }
