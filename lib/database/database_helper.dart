@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:sqflite/sqflite.dart';
 
 class DatabaseHelper {
@@ -9,7 +7,7 @@ class DatabaseHelper {
   factory DatabaseHelper() => _instance;
   DatabaseHelper._();
 
-  Future<Database> _database;
+  Future<Database>? _database;
 
   Future<Database> get database {
     if (_database == null) {
@@ -23,6 +21,6 @@ class DatabaseHelper {
         });
       });
     }
-    return _database;
+    return _database!;
   }
 }
