@@ -1,14 +1,11 @@
-// @dart=2.9
-
-import 'package:meta/meta.dart';
 import 'package:spelling_practice/model/active_record.dart';
 
 class Spelling extends ActiveRecord {
   Spelling({
-    int id,
-    @required this.title,
-    @required this.date,
-    @required this.language,
+    int? id,
+    required this.title,
+    required this.date,
+    required this.language,
   }) : super(id: id);
 
   String title;
@@ -23,11 +20,11 @@ class Spelling extends ActiveRecord {
   @override
   String get tableName => _tableName;
 
-  Spelling.fromMap(Map<String, dynamic> map) : super.fromMap(map) {
-    title = map[_titleColumn];
-    date = DateTime.fromMillisecondsSinceEpoch(map[_dateColumn]);
-    language = map[_languageColumn];
-  }
+  Spelling.fromMap(Map<String, dynamic> map)
+      : title = map[_titleColumn],
+        date = DateTime.fromMillisecondsSinceEpoch(map[_dateColumn]),
+        language = map[_languageColumn],
+        super.fromMap(map);
 
   Map<String, dynamic> toMap() {
     final map = super.toMap();
@@ -41,7 +38,7 @@ class Spelling extends ActiveRecord {
 
   static Future<int> deleteAll() => ActiveRecord.deleteAll(_tableName);
 
-  static Future<Spelling> find(int id) =>
+  static Future<Spelling?> find(int id) =>
       ActiveRecord.find(_tableName, id, (map) => Spelling.fromMap(map));
 
   static Future<List<Spelling>> findAll() => ActiveRecord.findAll(
