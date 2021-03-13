@@ -1,13 +1,10 @@
-// @dart=2.9
-
-import 'package:meta/meta.dart';
 import 'package:spelling_practice/model/active_record.dart';
 
 class Vocabulary extends ActiveRecord {
   Vocabulary({
-    int id,
-    @required this.vocabulary,
-    @required this.spellingId,
+    int? id,
+    required this.vocabulary,
+    required this.spellingId,
   }) : super(id: id);
 
   String vocabulary;
@@ -20,10 +17,10 @@ class Vocabulary extends ActiveRecord {
   @override
   String get tableName => _tableName;
 
-  Vocabulary.fromMap(Map<String, dynamic> map) : super.fromMap(map) {
-    vocabulary = map[_vocabularyColumn];
-    spellingId = map[_spellingIdColumn];
-  }
+  Vocabulary.fromMap(Map<String, dynamic> map)
+      : vocabulary = map[_vocabularyColumn],
+        spellingId = map[_spellingIdColumn],
+        super.fromMap(map);
 
   Map<String, dynamic> toMap() {
     final map = super.toMap();
@@ -34,9 +31,9 @@ class Vocabulary extends ActiveRecord {
 
   static Future<int> delete(int id) => ActiveRecord.delete(_tableName, id);
 
-  static Future<int> deleteAll({int spellingId}) {
-    String where;
-    List<dynamic> whereArgs;
+  static Future<int> deleteAll({int? spellingId}) {
+    String? where;
+    List<dynamic>? whereArgs;
 
     if (spellingId != null) {
       where = '$_spellingIdColumn = ?';
@@ -50,16 +47,16 @@ class Vocabulary extends ActiveRecord {
     );
   }
 
-  static Future<Vocabulary> find(int id) =>
+  static Future<Vocabulary?> find(int id) =>
       ActiveRecord.find(_tableName, id, (map) => Vocabulary.fromMap(map));
 
   static Future<List<Vocabulary>> findAll({
-    int spellingId,
+    int? spellingId,
     bool random = false,
   }) {
-    String where;
-    List<dynamic> whereArgs;
-    String orderBy;
+    String? where;
+    List<dynamic>? whereArgs;
+    String? orderBy;
 
     if (spellingId != null) {
       where = '$_spellingIdColumn = ?';
