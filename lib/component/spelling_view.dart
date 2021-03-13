@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart' show DateFormat;
 import 'package:spelling_practice/constants.dart';
@@ -7,7 +5,7 @@ import 'package:spelling_practice/model/language.dart';
 import 'package:spelling_practice/model/spelling.dart';
 
 class SpellingView extends StatelessWidget {
-  SpellingView({@required this.spelling});
+  SpellingView({required this.spelling});
 
   final Spelling spelling;
 
