@@ -1,3 +1,5 @@
+// @dart=2.9
+
 import 'package:spelling_practice/database/database_helper.dart';
 
 abstract class ActiveRecord {

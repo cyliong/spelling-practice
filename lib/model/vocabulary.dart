@@ -1,3 +1,5 @@
+// @dart=2.9
+
 import 'package:meta/meta.dart';
 import 'package:spelling_practice/model/active_record.dart';
 

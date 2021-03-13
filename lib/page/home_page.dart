@@ -1,3 +1,5 @@
+// @dart=2.9
+
 import 'package:flutter/material.dart';
 import 'package:spelling_practice/component/spelling_view.dart';
 import 'package:spelling_practice/model/spelling.dart';
