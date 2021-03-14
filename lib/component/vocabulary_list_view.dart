@@ -1,13 +1,11 @@
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:spelling_practice/model/vocabulary.dart';
 
 class VocabularyListView extends StatelessWidget {
   VocabularyListView({
-    @required this.vocabularyList,
-    @required this.language,
+    required this.vocabularyList,
+    required this.language,
   });
 
   final List<Vocabulary> vocabularyList;
