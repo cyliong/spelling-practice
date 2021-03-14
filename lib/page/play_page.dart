@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:spelling_practice/component/spelling_view.dart';
@@ -9,7 +7,7 @@ import 'package:spelling_practice/model/vocabulary.dart';
 import 'package:spelling_practice/repository/settings_repository.dart';
 
 class PlayPage extends StatefulWidget {
-  PlayPage({@required this.spelling});
+  PlayPage({required this.spelling});
 
   final Spelling spelling;
 
@@ -18,7 +16,7 @@ class PlayPage extends StatefulWidget {
 }
 
 class _PlayPageState extends State<PlayPage> {
-  Future<List<Vocabulary>> _vocabularyList;
+  Future<List<Vocabulary>>? _vocabularyList;
 
   int _vocabularyIndex = 0;
   bool _spellingDone = false;
@@ -50,10 +48,10 @@ class _PlayPageState extends State<PlayPage> {
                   Expanded(
                     child: _spellingDone
                         ? VocabularyListView(
-                            vocabularyList: snapshot.data,
+                            vocabularyList: snapshot.data!,
                             language: widget.spelling.language,
                           )
-                        : _buildPlayer(snapshot.data),
+                        : _buildPlayer(snapshot.data!),
                   ),
                 ],
               );
