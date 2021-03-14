@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart' show DateFormat;
 import 'package:spelling_practice/constants.dart';
@@ -8,10 +6,10 @@ import 'package:spelling_practice/model/spelling.dart';
 import 'package:spelling_practice/model/vocabulary.dart';
 
 class EditPage extends StatefulWidget {
-  EditPage({this.title, this.spelling});
+  EditPage({required this.title, this.spelling});
 
   final String title;
-  final Spelling spelling;
+  final Spelling? spelling;
 
   @override
   _EditPageState createState() => _EditPageState();
@@ -23,15 +21,15 @@ class _EditPageState extends State<EditPage> {
 
   int _vocabularyCount = 0;
 
-  Future<List<Vocabulary>> _vocabularyList;
+  Future<List<Vocabulary>>? _vocabularyList;
   bool _vocabularyListInitialized = false;
 
   bool _isNew = true;
 
   bool _saveButtonEnabled = false;
 
-  DateTime _date;
-  String _language;
+  late DateTime _date;
+  late String _language;
 
   @override
   void initState() {
@@ -41,7 +39,7 @@ class _EditPageState extends State<EditPage> {
 
     _titleController.addListener(() {
       setState(() {
-        _saveButtonEnabled = _titleController.text?.trim()?.isNotEmpty ?? false;
+        _saveButtonEnabled = _titleController.text.trim().isNotEmpty;
       });
     });
 
@@ -49,13 +47,14 @@ class _EditPageState extends State<EditPage> {
       _date = DateTime.now();
       _language = Languages.English.code;
     } else {
-      _titleController.text = widget.spelling.title;
+      final spelling = widget.spelling!;
+      _titleController.text = spelling.title;
 
-      _date = widget.spelling.date;
-      _language = widget.spelling.language;
+      _date = spelling.date;
+      _language = spelling.language;
 
       _vocabularyList = Vocabulary.findAll(
-        spellingId: widget.spelling.id,
+        spellingId: spelling.id,
       );
     }
   }
@@ -104,10 +103,11 @@ class _EditPageState extends State<EditPage> {
                           await _insertVocabularyList(spellingId);
                         }
                       } else {
-                        spelling.id = widget.spelling.id;
+                        final spellingId = widget.spelling!.id!;
+                        spelling.id = spellingId;
                         await spelling.update();
-                        await Vocabulary.deleteAll(spellingId: spelling.id);
-                        await _insertVocabularyList(spelling.id);
+                        await Vocabulary.deleteAll(spellingId: spellingId);
+                        await _insertVocabularyList(spellingId);
                       }
 
                       Navigator.pop(context, spelling);
@@ -141,7 +141,7 @@ class _EditPageState extends State<EditPage> {
                         ElevatedButton(
                           child: Text(DateFormat(kDateFormat).format(_date)),
                           onPressed: () async {
-                            final DateTime selectedDate = await showDatePicker(
+                            final selectedDate = await showDatePicker(
                               context: context,
                               initialDate: _date,
                               firstDate: DateTime(2018),
@@ -170,8 +170,11 @@ class _EditPageState extends State<EditPage> {
                                     child: Text(language.name),
                                   ))
                               .toList(),
-                          onChanged: (newValue) =>
-                              setState(() => _language = newValue),
+                          onChanged: (newValue) {
+                            if (newValue != null) {
+                              setState(() => _language = newValue);
+                            }
+                          },
                         ),
                       ],
                     ),
@@ -185,7 +188,7 @@ class _EditPageState extends State<EditPage> {
                     future: _vocabularyList,
                     builder: (context, snapshot) {
                       if (snapshot.hasData) {
-                        return _buildVocabularyListWidget(snapshot.data);
+                        return _buildVocabularyListWidget(snapshot.data!);
                       } else if (snapshot.hasError) {
                         return Text("${snapshot.error}");
                       }
@@ -216,7 +219,7 @@ class _EditPageState extends State<EditPage> {
   Future<void> _insertVocabularyList(int spellingId) async {
     _vocabularyControllers.forEach((controller) async {
       final text = controller.text;
-      if (text?.trim()?.isNotEmpty ?? false) {
+      if (text.trim().isNotEmpty) {
         await Vocabulary(
           vocabulary: text,
           spellingId: spellingId,
@@ -225,7 +228,7 @@ class _EditPageState extends State<EditPage> {
     });
   }
 
-  Widget _buildVocabularyListWidget([List<Vocabulary> vocabularyList]) {
+  Widget _buildVocabularyListWidget([List<Vocabulary>? vocabularyList]) {
     if (vocabularyList != null && !_vocabularyListInitialized) {
       _vocabularyCount = vocabularyList.length;
       vocabularyList.forEach((vocabulary) {
