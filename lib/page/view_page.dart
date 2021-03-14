@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 import 'package:spelling_practice/component/spelling_view.dart';
 import 'package:spelling_practice/component/vocabulary_list_view.dart';
@@ -7,7 +5,7 @@ import 'package:spelling_practice/model/spelling.dart';
 import 'package:spelling_practice/model/vocabulary.dart';
 
 class ViewPage extends StatefulWidget {
-  ViewPage({@required this.spelling});
+  ViewPage({required this.spelling});
 
   final Spelling spelling;
 
@@ -16,9 +14,9 @@ class ViewPage extends StatefulWidget {
 }
 
 class _ViewPageState extends State<ViewPage> {
-  Spelling _spelling;
+  late final Spelling _spelling;
 
-  Future<List<Vocabulary>> _vocabularyList;
+  late final Future<List<Vocabulary>> _vocabularyList;
 
   @override
   void initState() {
@@ -50,7 +48,7 @@ class _ViewPageState extends State<ViewPage> {
                 builder: (context, snapshot) {
                   if (snapshot.hasData) {
                     return VocabularyListView(
-                      vocabularyList: snapshot.data,
+                      vocabularyList: snapshot.data!,
                       language: _spelling.language,
                     );
                   } else if (snapshot.hasError) {
