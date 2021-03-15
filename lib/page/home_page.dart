@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 import 'package:spelling_practice/component/spelling_view.dart';
 import 'package:spelling_practice/model/spelling.dart';
@@ -10,7 +8,7 @@ import 'package:spelling_practice/page/settings_page.dart';
 import 'package:spelling_practice/page/view_page.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({Key key, this.title}) : super(key: key);
+  HomePage({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
@@ -19,7 +17,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  Future<List<Spelling>> _spellingList;
+  late Future<List<Spelling>> _spellingList;
 
   @override
   void initState() {
@@ -50,7 +48,7 @@ class _HomePageState extends State<HomePage> {
               icon: const Icon(Icons.add),
               tooltip: 'Add Spelling',
               onPressed: () async {
-                final Spelling spelling = await Navigator.push(
+                final Spelling? spelling = await Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder: (context) => EditPage(
@@ -72,7 +70,7 @@ class _HomePageState extends State<HomePage> {
           future: _spellingList,
           builder: (context, snapshot) {
             if (snapshot.hasData) {
-              final spellingList = snapshot.data;
+              final spellingList = snapshot.data!;
               return spellingList.isEmpty
                   ? Text('No Spellings',
                       style: TextStyle(fontSize: 30, color: Colors.grey))
@@ -116,7 +114,7 @@ class _HomePageState extends State<HomePage> {
                 });
           },
           onDismissed: (direction) async {
-            await Spelling.delete(spelling.id);
+            await Spelling.delete(spelling.id!);
             await Vocabulary.deleteAll(spellingId: spelling.id);
             setState(() {
               spellingList.removeAt(index);
@@ -133,7 +131,7 @@ class _HomePageState extends State<HomePage> {
                     TextButton(
                       child: const Text('EDIT'),
                       onPressed: () async {
-                        final Spelling updatedSpelling = await Navigator.push(
+                        final Spelling? updatedSpelling = await Navigator.push(
                           context,
                           MaterialPageRoute(
                             builder: (context) => EditPage(
