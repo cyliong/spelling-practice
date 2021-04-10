@@ -16,7 +16,8 @@ without the need to engage their teachers or parents.
 ## Features
 - Adding and editing vocabularies for spelling
 - View and play vocabularies in a spelling list before the real practice
-- In real practice, play vocabularies one-by-one in randomized or sequential order (configurable on the Settings page)
+- In real practice, play vocabularies one-by-one in randomized 
+  or sequential order (configurable on the Settings page)
 - Allow playing the same vocabulary for multiple times
 - Support pronouncing English and Chinese vocabularies
 - Showing the progress of practice
@@ -34,5 +35,5 @@ It uses generics and inheritance to make the creation of data models easier.
 - shared_preferences
 
 ## Requirements
-- Flutter 2.0.3 or higher
+- Flutter 2.0.4 or higher
 - Dart 2.12.0 or higher
