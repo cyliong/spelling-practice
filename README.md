@@ -26,8 +26,10 @@ without the need to engage their teachers or parents.
 - Swipe to delete a spelling list
 
 ## Data Access Layer
-The project implements a data access layer with the Active Record pattern. 
-It uses generics and inheritance to make the creation of data models easier.
+The project implements a data access layer 
+with the Active Record pattern. 
+It uses generics and inheritance 
+to make the creation of data models easier.
 
 ## Dependencies
 - sqflite
@@ -35,5 +37,5 @@ It uses generics and inheritance to make the creation of data models easier.
 - shared_preferences
 
 ## Requirements
-- Flutter 2.0.5 or higher
+- Flutter 2.0.6 or higher
 - Dart 2.12.0 or higher
