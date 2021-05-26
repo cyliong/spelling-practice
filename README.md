@@ -1,5 +1,4 @@
 # Spelling Practice
-
 This is a cross-platform mobile app for Android and iOS, 
 enabling students to practise spelling by themselves, 
 using Text-to-Speech (TTS) technologies.
@@ -37,5 +36,5 @@ to make the creation of data models easier.
 - shared_preferences
 
 ## Requirements
-- Flutter 2.0.6 or higher
-- Dart 2.12.0 or higher
+- Flutter 2.2.0 or higher
+- Dart 2.13.0 or higher
