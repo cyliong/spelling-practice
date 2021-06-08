@@ -10,12 +10,12 @@ abstract class ActiveRecord {
   String get tableName;
   String get idColumn => _idColumn;
 
-  ActiveRecord.fromMap(Map<String, dynamic> map) {
-    id = map[idColumn];
+  ActiveRecord.fromMap(Map<String, Object?> map) {
+    id = map[idColumn] as int?;
   }
 
-  Map<String, dynamic> toMap() {
-    final map = <String, dynamic>{};
+  Map<String, Object?> toMap() {
+    final map = <String, Object?>{};
     if (id != null) {
       map[idColumn] = id;
     }
@@ -42,7 +42,7 @@ abstract class ActiveRecord {
   static Future<int> deleteAll(
     String tableName, {
     String? where,
-    List<dynamic>? whereArgs,
+    List<Object?>? whereArgs,
   }) async {
     final database = await DatabaseHelper().database;
     return database.delete(
@@ -53,7 +53,7 @@ abstract class ActiveRecord {
   }
 
   static Future<T?> find<T extends ActiveRecord>(
-      String tableName, int id, T createModel(Map<String, dynamic> map),
+      String tableName, int id, T createModel(Map<String, Object?> map),
       [String? idColumn]) async {
     final database = await DatabaseHelper().database;
     final maps = await database.query(tableName,
@@ -63,9 +63,9 @@ abstract class ActiveRecord {
 
   static Future<List<T>> findAll<T extends ActiveRecord>(
     String tableName,
-    T createModel(Map<String, dynamic> map), {
+    T createModel(Map<String, Object?> map), {
     String? where,
-    List<dynamic>? whereArgs,
+    List<Object?>? whereArgs,
     String? orderBy,
   }) async {
     final database = await DatabaseHelper().database;

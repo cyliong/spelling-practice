@@ -20,13 +20,13 @@ class Spelling extends ActiveRecord {
   @override
   String get tableName => _tableName;
 
-  Spelling.fromMap(Map<String, dynamic> map)
-      : title = map[_titleColumn],
-        date = DateTime.fromMillisecondsSinceEpoch(map[_dateColumn]),
-        language = map[_languageColumn],
+  Spelling.fromMap(Map<String, Object?> map)
+      : title = map[_titleColumn] as String,
+        date = DateTime.fromMillisecondsSinceEpoch(map[_dateColumn] as int),
+        language = map[_languageColumn] as String,
         super.fromMap(map);
 
-  Map<String, dynamic> toMap() {
+  Map<String, Object?> toMap() {
     final map = super.toMap();
     map[_titleColumn] = title;
     map[_dateColumn] = date.millisecondsSinceEpoch;

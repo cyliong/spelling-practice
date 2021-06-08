@@ -17,12 +17,12 @@ class Vocabulary extends ActiveRecord {
   @override
   String get tableName => _tableName;
 
-  Vocabulary.fromMap(Map<String, dynamic> map)
-      : vocabulary = map[_vocabularyColumn],
-        spellingId = map[_spellingIdColumn],
+  Vocabulary.fromMap(Map<String, Object?> map)
+      : vocabulary = map[_vocabularyColumn] as String,
+        spellingId = map[_spellingIdColumn] as int,
         super.fromMap(map);
 
-  Map<String, dynamic> toMap() {
+  Map<String, Object?> toMap() {
     final map = super.toMap();
     map[_vocabularyColumn] = vocabulary;
     map[_spellingIdColumn] = spellingId;
@@ -33,7 +33,7 @@ class Vocabulary extends ActiveRecord {
 
   static Future<int> deleteAll({int? spellingId}) {
     String? where;
-    List<dynamic>? whereArgs;
+    List<Object?>? whereArgs;
 
     if (spellingId != null) {
       where = '$_spellingIdColumn = ?';
@@ -55,7 +55,7 @@ class Vocabulary extends ActiveRecord {
     bool random = false,
   }) {
     String? where;
-    List<dynamic>? whereArgs;
+    List<Object?>? whereArgs;
     String? orderBy;
 
     if (spellingId != null) {
