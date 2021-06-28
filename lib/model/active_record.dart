@@ -14,13 +14,7 @@ abstract class ActiveRecord {
     id = map[idColumn] as int?;
   }
 
-  Map<String, Object?> toMap() {
-    final map = <String, Object?>{};
-    if (id != null) {
-      map[idColumn] = id;
-    }
-    return map;
-  }
+  Map<String, Object?> toMap() => {if (id != null) idColumn: id};
 
   Future<int> insert() async {
     final database = await DatabaseHelper().database;
