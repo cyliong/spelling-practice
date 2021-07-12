@@ -26,12 +26,14 @@ class Spelling extends ActiveRecord {
         language = map[_languageColumn] as String,
         super.fromMap(map);
 
-  Map<String, Object?> toMap() => super.toMap()
-    ..addAll({
-      _titleColumn: title,
-      _dateColumn: date.millisecondsSinceEpoch,
-      _languageColumn: language,
-    });
+  Map<String, Object?> toMap() => {
+        ...super.toMap(),
+        ...{
+          _titleColumn: title,
+          _dateColumn: date.millisecondsSinceEpoch,
+          _languageColumn: language,
+        },
+      };
 
   static Future<int> delete(int id) => ActiveRecord.delete(_tableName, id);
 

@@ -22,11 +22,13 @@ class Vocabulary extends ActiveRecord {
         spellingId = map[_spellingIdColumn] as int,
         super.fromMap(map);
 
-  Map<String, Object?> toMap() => super.toMap()
-    ..addAll({
-      _vocabularyColumn: vocabulary,
-      _spellingIdColumn: spellingId,
-    });
+  Map<String, Object?> toMap() => {
+        ...super.toMap(),
+        ...{
+          _vocabularyColumn: vocabulary,
+          _spellingIdColumn: spellingId,
+        },
+      };
 
   static Future<int> delete(int id) => ActiveRecord.delete(_tableName, id);
 
