@@ -39,7 +39,7 @@ class _HomePageState extends State<HomePage> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => SettingsPage(),
+                  builder: (context) => const SettingsPage(),
                 ),
               );
             },
@@ -51,7 +51,7 @@ class _HomePageState extends State<HomePage> {
                 final Spelling? spelling = await Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => EditPage(
+                    builder: (context) => const EditPage(
                       title: 'New Spelling',
                     ),
                   ),
@@ -72,13 +72,13 @@ class _HomePageState extends State<HomePage> {
             if (snapshot.hasData) {
               final spellingList = snapshot.data!;
               return spellingList.isEmpty
-                  ? Text('No Spellings',
+                  ? const Text('No Spellings',
                       style: TextStyle(fontSize: 30, color: Colors.grey))
                   : _buildListView(spellingList);
             } else if (snapshot.hasError) {
               return Text("${snapshot.error}");
             }
-            return CircularProgressIndicator();
+            return const CircularProgressIndicator();
           },
         ),
       ),
@@ -98,15 +98,15 @@ class _HomePageState extends State<HomePage> {
                 context: context,
                 builder: (BuildContext context) {
                   return AlertDialog(
-                    title: Text('Delete this spelling?'),
+                    title: const Text('Delete this spelling?'),
                     content: Text('${spelling.title}'),
                     actions: <Widget>[
                       TextButton(
-                        child: Text('No'),
+                        child: const Text('No'),
                         onPressed: () => Navigator.pop(context, false),
                       ),
                       TextButton(
-                        child: Text('Yes'),
+                        child: const Text('Yes'),
                         onPressed: () => Navigator.pop(context, true),
                       ),
                     ],
