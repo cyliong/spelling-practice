@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:spelling_practice/repository/settings_repository.dart';
 
 class SettingsPage extends StatefulWidget {
+  const SettingsPage({Key? key}) : super(key: key);
+
   @override
   _SettingsPageState createState() => _SettingsPageState();
 }
