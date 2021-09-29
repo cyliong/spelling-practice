@@ -6,7 +6,11 @@ import 'package:spelling_practice/model/spelling.dart';
 import 'package:spelling_practice/model/vocabulary.dart';
 
 class EditPage extends StatefulWidget {
-  EditPage({required this.title, this.spelling});
+  const EditPage({
+    Key? key,
+    required this.title,
+    this.spelling,
+  }) : super(key: key);
 
   final String title;
   final Spelling? spelling;
