@@ -19,7 +19,7 @@ class App extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomePage(
+      home: const HomePage(
         title: 'Spelling',
       ),
       debugShowCheckedModeBanner: false,
