@@ -8,7 +8,7 @@ import 'package:spelling_practice/page/settings_page.dart';
 import 'package:spelling_practice/page/view_page.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({Key? key, required this.title}) : super(key: key);
+  const HomePage({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
