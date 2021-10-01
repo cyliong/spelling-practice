@@ -5,7 +5,7 @@ import 'package:spelling_practice/model/spelling.dart';
 import 'package:spelling_practice/model/vocabulary.dart';
 
 class ViewPage extends StatefulWidget {
-  ViewPage({required this.spelling});
+  const ViewPage({Key? key, required this.spelling}) : super(key: key);
 
   final Spelling spelling;
 
