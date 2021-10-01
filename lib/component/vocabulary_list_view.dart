@@ -3,10 +3,11 @@ import 'package:flutter_tts/flutter_tts.dart';
 import 'package:spelling_practice/model/vocabulary.dart';
 
 class VocabularyListView extends StatelessWidget {
-  VocabularyListView({
+  const VocabularyListView({
+    Key? key,
     required this.vocabularyList,
     required this.language,
-  });
+  }) : super(key: key);
 
   final List<Vocabulary> vocabularyList;
   final String language;
