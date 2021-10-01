@@ -5,7 +5,7 @@ import 'package:spelling_practice/model/language.dart';
 import 'package:spelling_practice/model/spelling.dart';
 
 class SpellingView extends StatelessWidget {
-  SpellingView({required this.spelling});
+  const SpellingView({Key? key, required this.spelling}) : super(key: key);
 
   final Spelling spelling;
 
