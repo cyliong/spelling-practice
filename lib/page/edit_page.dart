@@ -79,17 +79,17 @@ class _EditPageState extends State<EditPage> {
       appBar: AppBar(
         title: Text(widget.title),
         leading: IconButton(
-          icon: Icon(Icons.close),
+          icon: const Icon(Icons.close),
           onPressed: () => Navigator.pop(context),
         ),
         actions: <Widget>[
           Container(
-            margin: EdgeInsets.symmetric(
+            margin: const EdgeInsets.symmetric(
               vertical: 10,
               horizontal: 5,
             ),
             child: TextButton(
-              child: Text('SAVE'),
+              child: const Text('SAVE'),
               style: TextButton.styleFrom(
                 primary: Colors.white,
               ),
@@ -127,20 +127,20 @@ class _EditPageState extends State<EditPage> {
           children: <Widget>[
             Card(
               child: Container(
-                padding: EdgeInsets.all(10),
+                padding: const EdgeInsets.all(10),
                 child: Column(
                   children: <Widget>[
                     TextField(
                       controller: _titleController,
                       autofocus: true,
-                      decoration: InputDecoration(hintText: 'Title'),
+                      decoration: const InputDecoration(hintText: 'Title'),
                     ),
                     const SizedBox(height: 10),
                     Row(
                       children: <Widget>[
                         const SizedBox(
                           width: 100,
-                          child: const Text('Spelling Date'),
+                          child: Text('Spelling Date'),
                         ),
                         ElevatedButton(
                           child: Text(DateFormat(kDateFormat).format(_date)),
@@ -164,7 +164,7 @@ class _EditPageState extends State<EditPage> {
                       children: <Widget>[
                         const SizedBox(
                           width: 100,
-                          child: const Text('Language'),
+                          child: Text('Language'),
                         ),
                         DropdownButton<String>(
                           value: _language,
@@ -196,23 +196,23 @@ class _EditPageState extends State<EditPage> {
                       } else if (snapshot.hasError) {
                         return Text("${snapshot.error}");
                       }
-                      return CircularProgressIndicator();
+                      return const CircularProgressIndicator();
                     },
                   ),
             TextButton.icon(
               style: TextButton.styleFrom(
-                padding: EdgeInsets.all(15),
+                padding: const EdgeInsets.all(15),
               ),
               onPressed: () {
                 setState(() {
                   _vocabularyCount++;
                 });
               },
-              icon: Icon(
+              icon: const Icon(
                 Icons.add_circle,
                 color: Colors.blue,
               ),
-              label: Text('Add vocabulary'),
+              label: const Text('Add vocabulary'),
             ),
           ],
         ),
@@ -253,7 +253,7 @@ class _EditPageState extends State<EditPage> {
       children: _vocabularyControllers
           .map<Widget>((TextEditingController controller) {
         return Container(
-          padding: EdgeInsets.symmetric(horizontal: 15),
+          padding: const EdgeInsets.symmetric(horizontal: 15),
           child: Row(
             children: <Widget>[
               Expanded(
@@ -262,7 +262,7 @@ class _EditPageState extends State<EditPage> {
                 ),
               ),
               IconButton(
-                icon: Icon(Icons.delete),
+                icon: const Icon(Icons.delete),
                 onPressed: () {
                   setState(() {
                     _vocabularyCount--;
