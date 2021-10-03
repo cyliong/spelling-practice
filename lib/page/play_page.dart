@@ -58,7 +58,7 @@ class _PlayPageState extends State<PlayPage> {
             } else if (snapshot.hasError) {
               return Text("${snapshot.error}");
             }
-            return CircularProgressIndicator();
+            return const CircularProgressIndicator();
           },
         ),
       ),
@@ -70,7 +70,7 @@ class _PlayPageState extends State<PlayPage> {
       return Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
+          children: const [
             Text(
               'Nothing to play',
               style: TextStyle(fontSize: 30, color: Colors.grey),
@@ -102,7 +102,7 @@ class _PlayPageState extends State<PlayPage> {
                 child: CircularProgressIndicator(
                   strokeWidth: 20,
                   value: (_vocabularyIndex + 1) / vocabularyList.length,
-                  valueColor: AlwaysStoppedAnimation<Color>(Colors.green),
+                  valueColor: const AlwaysStoppedAnimation<Color>(Colors.green),
                   backgroundColor: Colors.black26,
                 ),
               ),
@@ -112,11 +112,11 @@ class _PlayPageState extends State<PlayPage> {
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     elevation: 12,
-                    shape: CircleBorder(),
+                    shape: const CircleBorder(),
                   ),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
+                    children: const [
                       Icon(
                         Icons.record_voice_over,
                         size: 80,
@@ -137,10 +137,10 @@ class _PlayPageState extends State<PlayPage> {
             ],
           ),
           Container(
-            padding: EdgeInsets.symmetric(vertical: 30),
+            padding: const EdgeInsets.symmetric(vertical: 30),
             child: Text(
               '${_vocabularyIndex + 1} of ${vocabularyList.length}',
-              style: TextStyle(fontSize: 30),
+              style: const TextStyle(fontSize: 30),
             ),
           ),
           _buildNextButton(_vocabularyIndex == vocabularyList.length - 1),
@@ -153,7 +153,7 @@ class _PlayPageState extends State<PlayPage> {
     return OutlinedButton(
       child: Text(
         isLastIndex ? 'Review' : 'Next',
-        style: TextStyle(fontSize: 18),
+        style: const TextStyle(fontSize: 18),
       ),
       onPressed: () {
         setState(() {
