@@ -15,14 +15,14 @@ class SpellingView extends StatelessWidget {
       title: Text('${spelling.title}'),
       subtitle: Text(DateFormat(kDateFormat).format(spelling.date)),
       trailing: Container(
-        padding: EdgeInsets.all(3.5),
-        decoration: BoxDecoration(
+        padding: const EdgeInsets.all(3.5),
+        decoration: const BoxDecoration(
           color: Colors.blueGrey,
-          borderRadius: BorderRadius.circular(5),
+          borderRadius: BorderRadius.all(Radius.circular(5)),
         ),
         child: Text(
           spelling.language == Languages.English.code ? 'English' : '中文',
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.white,
           ),
         ),
