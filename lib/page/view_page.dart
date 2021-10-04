@@ -32,7 +32,7 @@ class _ViewPageState extends State<ViewPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('View Spelling'),
+        title: const Text('View Spelling'),
       ),
       body: Column(
         children: <Widget>[
@@ -54,7 +54,7 @@ class _ViewPageState extends State<ViewPage> {
                   } else if (snapshot.hasError) {
                     return Text("${snapshot.error}");
                   }
-                  return CircularProgressIndicator();
+                  return const CircularProgressIndicator();
                 },
               ),
             ),
