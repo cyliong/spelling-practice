@@ -26,7 +26,7 @@ class VocabularyListView extends StatelessWidget {
                 shape: CircleBorder(),
               ),
               child: IconButton(
-                icon: Icon(Icons.record_voice_over),
+                icon: const Icon(Icons.record_voice_over),
                 color: Colors.white,
                 onPressed: () async {
                   FlutterTts tts = FlutterTts();
@@ -37,7 +37,7 @@ class VocabularyListView extends StatelessWidget {
             ),
           );
         },
-        separatorBuilder: (context, index) => Divider(),
+        separatorBuilder: (context, index) => const Divider(),
         itemCount: vocabularyList.length);
   }
 }
