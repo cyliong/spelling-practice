@@ -16,7 +16,7 @@ class EditPage extends StatefulWidget {
   final Spelling? spelling;
 
   @override
-  _EditPageState createState() => _EditPageState();
+  State<EditPage> createState() => _EditPageState();
 }
 
 class _EditPageState extends State<EditPage> {
