@@ -10,7 +10,7 @@ class ViewPage extends StatefulWidget {
   final Spelling spelling;
 
   @override
-  _ViewPageState createState() => _ViewPageState();
+  State<ViewPage> createState() => _ViewPageState();
 }
 
 class _ViewPageState extends State<ViewPage> {
