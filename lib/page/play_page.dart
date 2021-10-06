@@ -12,7 +12,7 @@ class PlayPage extends StatefulWidget {
   final Spelling spelling;
 
   @override
-  _PlayPageState createState() => _PlayPageState();
+  State<PlayPage> createState() => _PlayPageState();
 }
 
 class _PlayPageState extends State<PlayPage> {
