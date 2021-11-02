@@ -6,6 +6,7 @@ class SettingsRepository {
   SettingsRepository._();
 
   static const String _randomizedPreferencesKey = 'randomized';
+  static const String _confirmDeletePreferencesKey = 'confirm_delete';
 
   final _prefsFuture = SharedPreferences.getInstance();
 
