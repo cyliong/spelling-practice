@@ -19,4 +19,9 @@ class SettingsRepository {
     final prefs = await _prefsFuture;
     prefs.setBool(_randomizedPreferencesKey, randomized);
   }
+
+  Future<bool> isConfirmDelete() async {
+    final prefs = await _prefsFuture;
+    return prefs.getBool(_confirmDeletePreferencesKey) ?? true;
+  }
 }
