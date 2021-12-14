@@ -36,5 +36,5 @@ to make the creation of data models easier.
 - shared_preferences
 
 ## Requirements
-- Flutter 2.5.3 or higher
-- Dart 2.14.4 or higher
+- Flutter 2.8.0 or higher
+- Dart 2.15.0 or higher
