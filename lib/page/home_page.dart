@@ -31,7 +31,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
-        actions: <Widget>[
+        actions: [
           IconButton(
             icon: const Icon(Icons.settings),
             tooltip: 'Settings',
@@ -100,7 +100,7 @@ class _HomePageState extends State<HomePage> {
                   return AlertDialog(
                     title: const Text('Delete this spelling?'),
                     content: Text('${spelling.title}'),
-                    actions: <Widget>[
+                    actions: [
                       TextButton(
                         child: const Text('No'),
                         onPressed: () => Navigator.pop(context, false),
@@ -122,12 +122,12 @@ class _HomePageState extends State<HomePage> {
           },
           child: Card(
             child: Column(
-              children: <Widget>[
+              children: [
                 SpellingView(
                   spelling: spelling,
                 ),
                 ButtonBar(
-                  children: <Widget>[
+                  children: [
                     TextButton(
                       child: const Text('EDIT'),
                       onPressed: () async {
