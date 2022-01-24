@@ -82,7 +82,7 @@ class _EditPageState extends State<EditPage> {
           icon: const Icon(Icons.close),
           onPressed: () => Navigator.pop(context),
         ),
-        actions: <Widget>[
+        actions: [
           Container(
             margin: const EdgeInsets.symmetric(
               vertical: 10,
@@ -124,12 +124,12 @@ class _EditPageState extends State<EditPage> {
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
+          children: [
             Card(
               child: Container(
                 padding: const EdgeInsets.all(10),
                 child: Column(
-                  children: <Widget>[
+                  children: [
                     TextField(
                       controller: _titleController,
                       autofocus: true,
@@ -137,7 +137,7 @@ class _EditPageState extends State<EditPage> {
                     ),
                     const SizedBox(height: 10),
                     Row(
-                      children: <Widget>[
+                      children: [
                         const SizedBox(
                           width: 100,
                           child: Text('Spelling Date'),
@@ -161,7 +161,7 @@ class _EditPageState extends State<EditPage> {
                       ],
                     ),
                     Row(
-                      children: <Widget>[
+                      children: [
                         const SizedBox(
                           width: 100,
                           child: Text('Language'),
@@ -255,7 +255,7 @@ class _EditPageState extends State<EditPage> {
         return Container(
           padding: const EdgeInsets.symmetric(horizontal: 15),
           child: Row(
-            children: <Widget>[
+            children: [
               Expanded(
                 child: TextField(
                   controller: controller,
